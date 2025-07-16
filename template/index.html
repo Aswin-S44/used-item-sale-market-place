@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReVibe - The Modern Marketplace</title>
+
+    <!-- Link to our Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Google Fonts (Poppins) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ======== SIDEBAR (for Mobile) ======== -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <a href="#" class="sidebar-logo">ReVibe</a>
+            <button class="close-btn" id="close-sidebar"><i class="fas fa-times"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul>
+                <li><a href="#"><i class="fas fa-mobile-alt"></i> Electronics</a></li>
+                <li><a href="#"><i class="fas fa-couch"></i> Furniture</a></li>
+                <li><a href="#"><i class="fas fa-tshirt"></i> Fashion</a></li>
+                <li><a href="#"><i class="fas fa-car"></i> Vehicles</a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-actions">
+            <a href="#" class="btn btn-secondary">Log In</a>
+            <a href="#" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Sell Item</a>
+        </div>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- ======== HEADER / NAVIGATION ======== -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">ReVibe</a>
+                <nav class="main-nav">
+                    <ul>
+                        <li><a href="#">Electronics</a></li>
+                        <li><a href="#">Furniture</a></li>
+                        <li><a href="#">Fashion</a></li>
+                        <li><a href="#">Vehicles</a></li>
+                    </ul>
+                </nav>
+                <div class="header-actions">
+                    <a href="#" class="btn btn-secondary">Log In</a>
+                    <a href="#" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Sell Item</a>
+                </div>
+                <button class="nav-toggle" id="open-sidebar" aria-label="toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- ======== HERO SECTION ======== -->
+        <section class="hero">
+            <div class="container">
+                <h1 class="hero-title">Discover Pre-Loved, Re-Loved.</h1>
+                <p class="hero-subtitle">The ultimate marketplace for unique second-hand treasures.</p>
+                <div class="search-bar">
+                    <div class="search-input">
+                        <i class="fas fa-search"></i>
+                        <input type="text" placeholder="Search for 'vintage camera', 'leather sofa'...">
+                    </div>
+                    <button class="btn btn-accent">Search</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== CATEGORIES SECTION ======== -->
+        <section class="categories-section">
+            <div class="container">
+                <h2 class="section-title">Explore by Category</h2>
+                <div class="category-grid">
+                    <a href="#" class="category-card">
+                        <i class="fas fa-laptop"></i>
+                        <span>Electronics</span>
+                    </a>
+                    <a href="#" class="category-card">
+                        <i class="fas fa-couch"></i>
+                        <span>Furniture</span>
+                    </a>
+                    <a href="#" class="category-card">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Fashion</span>
+                    </a>
+                    <a href="#" class="category-card">
+                        <i class="fas fa-book"></i>
+                        <span>Books</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ======== PRODUCT GRID ======== -->
+        <section class="product-section">
+            <div class="container">
+                <h2 class="section-title">Fresh Finds</h2>
+                <div class="product-grid">
+
+                    <!-- Product Card 1 (with Featured Badge) -->
+                    <div class="product-card">
+                        <div class="card-image">
+                            <span class="badge featured">Featured</span>
+                            <img src="https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Vintage Watch">
+                            <div class="card-hover-action">
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Jewelry</span>
+                            <h3 class="card-title">Vintage Leather Watch</h3>
+                            <div class="card-footer">
+                                <p class="card-price">$120.00</p>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> New York</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="product-card">
+                        <div class="card-image">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=600" alt="Smartphone">
+                             <div class="card-hover-action">
+                                <a href="#" class="btn btn-primary">View Details</a>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <span class="card-category">Electronics</span>
+                            <h3 class="card-title">Slightly Used Smartphone</h3>
+                             <div class="card-footer">
+                                <p class="card-price">$350.00</p>
+                                <p class="card-location"><i class="fas fa-map-marker-alt"></i> London</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ... Add more cards as needed -->
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ======== FOOTER ======== -->
+    <footer class="footer">
+        <!-- ... (Footer is the same as before, but will look better with new styles) ... -->
+    </footer>
+
+
+    <script>
+        // --- Sidebar Functionality ---
+        const sidebar = document.querySelector('.sidebar');
+        const overlay = document.querySelector('.overlay');
+        const openBtn = document.getElementById('open-sidebar');
+        const closeBtn = document.getElementById('close-sidebar');
+
+        function openSidebar() {
+            sidebar.classList.add('active');
+            overlay.classList.add('active');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+
+        openBtn.addEventListener('click', openSidebar);
+        closeBtn.addEventListener('click', closeSidebar);
+        overlay.addEventListener('click', closeSidebar);
+    </script>
+
+</body>
+</html>

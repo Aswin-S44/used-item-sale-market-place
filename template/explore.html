@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore All Items - ReVibe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Include your main header here -->
+    <header class="header">
+       <!-- ... (Header code from index.html) ... -->
+    </header>
+    
+    <!-- Filter Overlay for Mobile -->
+    <div class="filter-overlay"></div>
+
+    <main class="explore-container">
+        <!-- LEFT COLUMN: FILTER SIDEBAR -->
+        <aside class="filter-sidebar" id="filter-sidebar">
+            <div class="filter-header">
+                <h3>Filters</h3>
+                <button class="close-filters-btn" id="close-filters"><i class="fas fa-times"></i></button>
+            </div>
+
+            <!-- Filter Group: Category -->
+            <div class="filter-group">
+                <h4>Category</h4>
+                <ul class="filter-list">
+                    <li><a href="#">Electronics <span class="item-count">32</span></a></li>
+                    <li class="active"><a href="#">All Items <span class="item-count">87</span></a></li>
+                    <li><a href="#">Furniture <span class="item-count">15</span></a></li>
+                    <li><a href="#">Fashion <span class="item-count">24</span></a></li>
+                    <li><a href="#">Books <span class="item-count">11</span></a></li>
+                    <li><a href="#">Sports <span class="item-count">5</span></a></li>
+                </ul>
+            </div>
+
+            <!-- Filter Group: Price Range -->
+            <div class="filter-group">
+                <h4>Price Range</h4>
+                <div class="price-slider">
+                    <div class="price-slider-track">
+                        <div class="price-slider-progress" style="left: 10%; right: 40%;"></div>
+                        <div class="price-slider-handle" style="left: 10%;"></div>
+                        <div class="price-slider-handle" style="left: 60%;"></div>
+                    </div>
+                </div>
+                <div class="price-inputs">
+                    <input type="number" value="50" placeholder="Min">
+                    <span>-</span>
+                    <input type="number" value="500" placeholder="Max">
+                </div>
+            </div>
+
+            <!-- Filter Group: Condition -->
+            <div class="filter-group">
+                <h4>Condition</h4>
+                <ul class="filter-list radio-list">
+                    <li><label><input type="radio" name="condition" checked> All</label></li>
+                    <li><label><input type="radio" name="condition"> New</label></li>
+                    <li><label><input type="radio" name="condition"> Like New</label></li>
+                    <li><label><input type="radio" name="condition"> Used</label></li>
+                </ul>
+            </div>
+            
+            <!-- Filter Group: Rating -->
+            <div class="filter-group">
+                <h4>Seller Rating</h4>
+                <ul class="filter-list rating-list">
+                    <li><a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></a></li>
+                    <li><a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i> & Up</a></li>
+                    <li><a href="#"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i> & Up</a></li>
+                </ul>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn btn-primary">Apply Filters</button>
+                <button class="btn btn-secondary">Clear All</button>
+            </div>
+        </aside>
+
+        <!-- RIGHT COLUMN: PRODUCTS -->
+        <div class="product-listing-area">
+            <div class="explore-header">
+                <p class="results-count">Showing 1–12 of 87 results</p>
+                <div class="sort-and-filter">
+                    <select class="sort-dropdown" aria-label="Sort products">
+                        <option value="default">Default sorting</option>
+                        <option value="price-asc">Sort by price: low to high</option>
+                        <option value="price-desc">Sort by price: high to low</option>
+                        <option value="date">Sort by latest</option>
+                    </select>
+                    <button class="mobile-filter-toggle" id="mobile-filter-toggle"><i class="fas fa-filter"></i> Filters</button>
+                </div>
+            </div>
+
+            <div class="product-results-grid">
+                <!-- Repeat the product-card here from index.html -->
+                <!-- I'll add 6 as an example -->
+                <div class="product-card"> <!-- ... Card content ... --> </div>
+                <div class="product-card"> <!-- ... Card content ... --> </div>
+                <div class="product-card"> <!-- ... Card content ... --> </div>
+                <div class="product-card"> <!-- ... Card content ... --> </div>
+                <div class="product-card"> <!-- ... Card content ... --> </div>
+                <div class="product-card"> <!-- ... Card content ... --> </div>
+            </div>
+            
+            <!-- PAGINATION -->
+            <nav class="pagination">
+                <a href="#" class="page-number current">1</a>
+                <a href="#" class="page-number">2</a>
+                <a href="#" class="page-number">3</a>
+                <span>...</span>
+                <a href="#" class="page-number">8</a>
+                <a href="#" class="page-next"><i class="fas fa-chevron-right"></i></a>
+            </nav>
+        </div>
+    </main>
+
+    <script>
+        // --- Mobile Filter Sidebar Functionality ---
+        const filterSidebar = document.getElementById('filter-sidebar');
+        const filterOverlay = document.querySelector('.filter-overlay');
+        const openFilterBtn = document.getElementById('mobile-filter-toggle');
+        const closeFilterBtn = document.getElementById('close-filters');
+
+        function openFilterSidebar() {
+            filterSidebar.classList.add('active');
+            filterOverlay.classList.add('active');
+        }
+
+        function closeFilterSidebar() {
+            filterSidebar.classList.remove('active');
+            filterOverlay.classList.remove('active');
+        }
+
+        openFilterBtn.addEventListener('click', openFilterSidebar);
+        closeFilterBtn.addEventListener('click', closeFilterSidebar);
+        filterOverlay.addEventListener('click', closeFilterSidebar);
+    </script>
+</body>
+</html>

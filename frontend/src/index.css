@@ -1,0 +1,43 @@
+:root {
+    --primary-color: #4a47a3; /* A sophisticated indigo */
+    --primary-hover: #3a388a;
+    --accent-color: #00c6ff; /* A vibrant blue for accents */
+    --accent-hover: #00a8e0;
+    --secondary-color: #f0f2f5;
+    --text-dark: #1c1e21;
+    --text-light: #ffffff;
+    --text-muted: #6c757d;
+    --background-color: #f8f9fa;
+    --card-bg: #ffffff;
+    --border-color: #e4e6eb;
+    --shadow-soft: 0 2px 4px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --border-radius: 12px;
+}
+
+/* Base Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-dark);
+    line-height: 1.7;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+a { text-decoration: none; color: var(--primary-color); transition: color 0.3s ease; }
+a:hover { color: var(--primary-hover); }
+ul { list-style: none; }
+.section-title { text-align: center; font-size: 2.8rem; margin-bottom: 3.5rem; font-weight: 700; color: var(--text-dark); }
+
+
+/* Buttons */
+.btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; }
+.btn-primary { background-color: var(--primary-color); color: var(--text-light); }
+.btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(74, 71, 163, 0.3); }
+.btn-accent { background-color: var(--accent-color); color: var(--text-light); }
+.btn-accent:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 198, 255, 0.4); }
+.btn-secondary { background-color: var(--secondary-color); color: var(--text-dark); font-weight: 500; }
+.btn-secondary:hover { background-color: #dde1e6; }
+.btn i { margin-right: 8px; }

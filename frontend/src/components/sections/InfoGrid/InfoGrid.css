@@ -1,0 +1,68 @@
+/* ======== INFO GRID SECTION ======== */
+.info-grid-section {
+    padding: 2rem 0;
+    background-color: var(--secondary-color); /* Light gray background like Amazon */
+}
+
+.info-grid {
+    display: grid;
+    /* This creates a responsive grid that automatically adjusts columns */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Individual Card Styling */
+.info-card {
+    background-color: var(--card-bg);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.info-card-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.info-card-content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    flex-grow: 1; /* Allows the grid to take up available space */
+}
+
+.info-card-item {
+    cursor: pointer;
+}
+
+.info-card-item img {
+    width: 100%;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    transition: transform 0.2s ease-in-out;
+}
+
+.info-card-item:hover img {
+    transform: scale(1.03);
+}
+
+.info-card-item p {
+    font-size: 0.85rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+.info-card-link {
+    margin-top: 1.5rem; /* Pushes the link to the bottom */
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+.info-card-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}

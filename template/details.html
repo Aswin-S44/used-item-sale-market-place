@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slightly Used Smartphone - ReVibe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="details-page-body">
+
+    <!-- You can include the same header here if you want it on every page -->
+    <header class="header">
+       <!-- ... (Header code from index.html) ... -->
+    </header>
+
+    <main class="details-container">
+        <!-- BREADCRUMBS -->
+        <nav class="breadcrumbs">
+            <a href="index.html">Home</a> <i class="fas fa-chevron-right"></i>
+            <a href="#">Electronics</a> <i class="fas fa-chevron-right"></i>
+            <span>Slightly Used Smartphone</span>
+        </nav>
+
+        <div class="product-details-layout">
+            <!-- LEFT COLUMN: IMAGE GALLERY -->
+            <section class="product-image-gallery">
+                <div class="main-image">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=800" alt="Main product image" id="main-product-image">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=200" alt="Thumbnail 1" class="thumbnail active">
+                    <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbf1?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=200" alt="Thumbnail 2" class="thumbnail">
+                    <img src="https://images.unsplash.com/photo-1598327105666-65845214a0a2?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=200" alt="Thumbnail 3" class="thumbnail">
+                    <img src="https://images.unsplash.com/photo-1567581935887-289537c5414b?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=200" alt="Thumbnail 4" class="thumbnail">
+                </div>
+            </section>
+
+            <!-- RIGHT COLUMN: PRODUCT INFO & ACTIONS -->
+            <section class="product-info">
+                <h1 class="product-title">Slightly Used Smartphone</h1>
+                <p class="product-price">$350.00</p>
+                <p class="product-short-desc">A powerful smartphone in excellent condition with minimal signs of wear. Comes with original box and charger.</p>
+                
+                <div class="action-buttons">
+                    <button class="btn btn-accent btn-block"><i class="fas fa-comments"></i> Chat with Dealer</button>
+                    <button class="btn btn-primary btn-block" id="contact-dealer-btn"><i class="fas fa-phone-alt"></i> Contact Dealer</button>
+                </div>
+                <div id="dealer-contact-info" class="dealer-contact-info-hidden">
+                    <p>Dealer's Number: <strong>+1 (555) 123-4567</strong></p>
+                </div>
+
+                <!-- SELLER INFO CARD -->
+                <div class="seller-info-card">
+                    <div class="seller-avatar">
+                        <img src="https://i.pravatar.cc/60?img=11" alt="Seller Avatar">
+                    </div>
+                    <div class="seller-details">
+                        <p class="seller-name"><strong>Alex Morgan</strong></p>
+                        <div class="seller-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.5 from 23 reviews)</span>
+                        </div>
+                    </div>
+                    <a href="#" class="btn-view-profile">View Profile</a>
+                </div>
+            </section>
+        </div>
+
+        <!-- TABS FOR MORE DETAILS -->
+        <section class="product-details-tabs">
+            <div class="tab-buttons">
+                <button class="tab-link active" data-tab="description">Description</button>
+                <button class="tab-link" data-tab="specs">Specifications</button>
+                <button class="tab-link" data-tab="location">Location</button>
+            </div>
+            <div class="tab-content">
+                <!-- Description Tab -->
+                <div id="description" class="tab-pane active">
+                    <h3>Full Product Description</h3>
+                    <p>This smartphone has been well-cared for and is in perfect working order. The screen is free of scratches, and the battery health is at 92%. It's unlocked for all carriers. I'm selling it because I've recently upgraded. Feel free to message me with any questions!</p>
+                    <p>What's included:</p>
+                    <ul>
+                        <li>The Smartphone</li>
+                        <li>Original Box and Manuals</li>
+                        <li>USB-C Charging Cable</li>
+                        <li>A protective case</li>
+                    </ul>
+                </div>
+                <!-- Specs Tab -->
+                <div id="specs" class="tab-pane">
+                    <h3>Key Specifications</h3>
+                    <ul class="spec-list">
+                        <li><span>Condition:</span><strong>Like New</strong></li>
+                        <li><span>Brand:</span><strong>PixelPro</strong></li>
+                        <li><span>Storage:</span><strong>128 GB</strong></li>
+                        <li><span>Color:</span><strong>Cosmic Black</strong></li>
+                        <li><span>Screen Size:</span><strong>6.4 inches</strong></li>
+                    </ul>
+                </div>
+                <!-- Location Tab -->
+                <div id="location" class="tab-pane">
+                    <h3>Item Location</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> London, UK (Approximate)</p>
+                    <div class="map-placeholder">
+                        <p>Map would be displayed here</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script>
+        // --- Image Gallery Functionality ---
+        const mainImage = document.getElementById('main-product-image');
+        const thumbnails = document.querySelectorAll('.thumbnail');
+
+        thumbnails.forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                // Remove active class from all thumbnails
+                document.querySelector('.thumbnail.active').classList.remove('active');
+                // Add active class to the clicked thumbnail
+                this.classList.add('active');
+                // Change the main image src
+                mainImage.src = this.src.replace('w=200', 'w=800'); // Use a higher res version for main image
+            });
+        });
+
+        // --- "Contact Dealer" Button Functionality ---
+        const contactBtn = document.getElementById('contact-dealer-btn');
+        const contactInfo = document.getElementById('dealer-contact-info');
+
+        contactBtn.addEventListener('click', () => {
+            contactInfo.classList.toggle('dealer-contact-info-visible');
+        });
+
+        // --- Tabs Functionality ---
+        const tabLinks = document.querySelectorAll('.tab-link');
+        const tabPanes = document.querySelectorAll('.tab-pane');
+
+        tabLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                const tabId = link.getAttribute('data-tab');
+
+                // Deactivate all links and panes
+                tabLinks.forEach(item => item.classList.remove('active'));
+                tabPanes.forEach(pane => pane.classList.remove('active'));
+
+                // Activate the clicked link and corresponding pane
+                link.classList.add('active');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+/* ======== PRODUCT CAROUSEL SECTION ======== */
+.product-carousel-section {
+    padding: 2rem 0;
+    background-color: var(--secondary-color);
+}
+
+.carousel-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.carousel-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.carousel-link {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+}
+.carousel-link:hover {
+    color: var(--accent-color);
+    text-decoration: underline;
+}
+
+.carousel-container {
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    gap: 20px;
+    padding: 10px; /* Provides some breathing room for box-shadows */
+    margin: -10px; /* Counteracts the padding for alignment */
+
+    /* The magic for smooth, native-like scrolling */
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none; /* Hide scrollbar for Firefox */
+    -ms-overflow-style: none; /* Hide scrollbar for IE/Edge */
+    scroll-behavior: smooth;
+}
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Hide scrollbar for Chrome/Safari/Opera */
+}
+
+/* Individual Slide Styling */
+.product-slide {
+    /* Set the width of each slide */
+    flex: 0 0 20%; /* Show 5 items on large screens */
+    min-width: 220px; /* Minimum width before it gets too squished */
+    scroll-snap-align: start;
+    background-color: var(--card-bg);
+    border-radius: 4px;
+    text-align: left;
+    transition: box-shadow 0.3s;
+}
+.product-slide:hover {
+    box-shadow: var(--shadow-medium);
+}
+
+.slide-image-container {
+    padding: 20px 20px 10px;
+}
+.slide-image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: contain; /* 'contain' works well for product shots */
+}
+
+.slide-content {
+    padding: 0 20px 20px;
+}
+
+.slide-title {
+    font-size: 0.9rem;
+    font-weight: 500;
+    line-height: 1.4;
+    height: 3.9em; /* Reserve space for ~3 lines of text */
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.deal-badge {
+    display: inline-block;
+    background-color: #c00;
+    color: white;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    border-radius: 4px;
+    margin-right: 8px;
+}
+
+.deal-text {
+    font-size: 0.8rem;
+    color: #c00;
+    font-weight: 600;
+}
+
+.price-container {
+    margin-top: 0.5rem;
+}
+.current-price {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+.mrp {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-decoration: line-through;
+    margin-left: 8px;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-btn {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    box-shadow: var(--shadow-medium);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dark);
+    transition: transform 0.2s;
+}
+.carousel-btn:hover {
+    transform: translateY(-50%) scale(1.1);
+}
+.carousel-btn:disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+}
+.carousel-btn.prev { left: -22px; }
+.carousel-btn.next { right: -22px; }
+
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .product-slide { flex-basis: 25%; } /* 4 items */
+}
+@media (max-width: 992px) {
+    .product-slide { flex-basis: 33.33%; } /* 3 items */
+}
+@media (max-width: 768px) {
+    .product-slide { flex-basis: 45%; } /* 2 items visible */
+    .carousel-btn {
+        display: none; /* Hide buttons on mobile where swiping is natural */
+    }
+}
+@media (max-width: 480px) {
+    .product-slide { flex-basis: 65%; } /* ~1.5 items visible */
+}
