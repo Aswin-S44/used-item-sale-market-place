@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import "./Header.css"; // Import the component-specific CSS
+import { useNavigate } from "react-router-dom";
 
 function Header() {
-  // State to manage whether the sidebar is open or closed
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const navigate = useNavigate();
 
-  // Function to open the sidebar
   const openSidebar = () => {
     setSidebarOpen(true);
   };
 
-  // Function to close the sidebar
   const closeSidebar = () => {
     setSidebarOpen(false);
   };
@@ -54,7 +53,7 @@ function Header() {
           </ul>
         </nav>
         <div className="sidebar-actions">
-          <a href="#" className="btn btn-secondary">
+          <a href="/login" className="btn btn-secondary">
             Log In
           </a>
           <a href="#" className="btn btn-primary">
@@ -92,7 +91,7 @@ function Header() {
               </ul>
             </nav>
             <div className="header-actions">
-              <a href="#" className="btn btn-secondary">
+              <a href="/login" className="btn btn-secondary">
                 Log In
               </a>
               <a href="#" className="btn btn-primary">
