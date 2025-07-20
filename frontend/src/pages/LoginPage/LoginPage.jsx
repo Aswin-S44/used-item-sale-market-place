@@ -1,13 +1,27 @@
 import React, { useState } from "react";
 import "./LoginPage.css";
+import { SignIn } from "../../api/dealer/dealerApi";
+import { STATUS_OK } from "../../constants/httpStatusCodes";
+import { useNavigate } from "react-router-dom";
 
 function LoginPage() {
-  // State to manage password visibility
+  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
   const [passwordVisible, setPasswordVisible] = useState(false);
 
-  // Function to toggle password visibility
   const togglePasswordVisibility = () => {
     setPasswordVisible(!passwordVisible);
+  };
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const res = await SignIn({ email, password });
+
+    if (res && res.status === STATUS_OK) {
+      navigate("/");
+    }
   };
 
   return (
@@ -36,13 +50,15 @@ function LoginPage() {
             OR
           </div>
 
-          <form>
+          <form onSubmit={handleLogin}>
             <div className="form-group">
               <input
                 type="email"
                 id="email"
                 placeholder="Email Address"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
               <i className="fas fa-envelope input-icon"></i>
             </div>
@@ -54,6 +70,8 @@ function LoginPage() {
                 id="password"
                 placeholder="Password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
               <i className="fas fa-lock input-icon"></i>
               {/* The eye icon button to toggle visibility */}

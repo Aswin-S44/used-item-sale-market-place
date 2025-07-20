@@ -35,9 +35,21 @@ ul { list-style: none; }
 /* Buttons */
 .btn { display: inline-block; padding: 12px 28px; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; border: none; cursor: pointer; }
 .btn-primary { background-color: var(--primary-color); color: var(--text-light); }
-.btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(74, 71, 163, 0.3); }
-.btn-accent { background-color: var(--accent-color); color: var(--text-light); }
+.btn-primary:hover { background-color: var(--primary-color); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(74, 71, 163, 0.3); }
+.btn-accent { background-color: var(--primary-color); color: var(--text-light); }
 .btn-accent:hover { background-color: var(--accent-hover); transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0, 198, 255, 0.4); }
 .btn-secondary { background-color: var(--secondary-color); color: var(--text-dark); font-weight: 500; }
 .btn-secondary:hover { background-color: #dde1e6; }
 .btn i { margin-right: 8px; }
+
+.mt-2{
+    top: 3px;
+    position: relative;
+}
+
+.error-message {
+    color: #ff4d4f;
+    font-size: 0.8rem;
+    margin-top: 4px;
+    display: block;
+  }

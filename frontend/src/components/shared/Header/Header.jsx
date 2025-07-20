@@ -71,7 +71,7 @@ function Header() {
       <header className="header">
         <div className="container">
           <div className="header-content">
-            <a href="#" className="logo">
+            <a href="/" className="logo">
               ReVibe
             </a>
             <nav className="main-nav">

@@ -5,22 +5,23 @@ module.exports.SUBSCRIPTION_TYPES = {
 };
 
 module.exports.PRODUCT_CATEGORY_TYPES = {
-  ELECTRONICS: "electronics",
-  CLOTHING: "clothing",
-  FURNITURE: "furniture",
-  TOYS: "toys",
-  BOOKS: "books",
-  GROCERY: "grocery",
-  BEAUTY: "beauty",
-  SPORTS: "sports",
-  AUTOMOTIVE: "automotive",
-  HOME_APPLIANCES: "home_appliances",
-  OTHERS: "others",
+  ELECTRONICS: "Electronics",
+  CLOTHING: "Clothing",
+  FURNITURE: "Furniture",
+  TOYS: "Toys",
+  BOOKS: "Books",
+  GROCERY: "Grocery",
+  BEAUTY: "Beauty",
+  SPORTS: "Sports",
+  AUTOMOTIVE: "Automotive",
+  HOME_APPLIANCES: "Home appliances",
+  OTHERS: "Others",
+  CARS: "Cars",
 };
 
 module.exports.PRODUCT_CONDITION_TYPES = {
-  USED: "used",
-  NEW: "new",
+  USED: "Used",
+  NEW: "New",
 };
 
 module.exports.PRODUCT_STATUS_TYPES = {

@@ -7,21 +7,37 @@ import ProductCarousel from "./components/ProductCarousel/ProductCarousel";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import LoginPage from "./pages/LoginPage/LoginPage";
+import DealerProfile from "./pages/DealerProfile/DealerProfile";
+import AddProductPage from "./pages/AddProductPage/AddProductPage";
+import NotFound from "./pages/NotFound/NotFound";
+import { UserProvider } from "./context/UserContext";
 
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <main>
-          <Header />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-          <Footer />
-        </main>
-      </div>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <div>
+          <main>
+            <Header />
+            <Routes>
+              <Route
+                path="*"
+                element={
+                  <>
+                    <NotFound />
+                  </>
+                }
+              />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/login" element={<LoginPage />} />
+              <Route path="/profile" element={<DealerProfile />} />
+              <Route path="/add/product" element={<AddProductPage />} />
+            </Routes>
+            <Footer />
+          </main>
+        </div>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
