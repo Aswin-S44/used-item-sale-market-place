@@ -11,6 +11,7 @@ import DealerProfile from "./pages/DealerProfile/DealerProfile";
 import AddProductPage from "./pages/AddProductPage/AddProductPage";
 import NotFound from "./pages/NotFound/NotFound";
 import { UserProvider } from "./context/UserContext";
+import EditProductPage from "./pages/EditProductPage/EditProductPage";
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route path="/profile" element={<DealerProfile />} />
               <Route path="/add/product" element={<AddProductPage />} />
+              <Route path="/product/edit/:id" element={<EditProductPage />} />
             </Routes>
             <Footer />
           </main>

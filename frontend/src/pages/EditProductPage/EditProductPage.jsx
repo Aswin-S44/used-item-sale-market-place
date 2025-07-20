@@ -1,12 +1,12 @@
 import React from "react";
 import AddProductForm from "../../components/shared/AddProductForm/AddProductForm";
 
-function AddProductPage() {
+function EditProductPage() {
   return (
     <div>
-      <AddProductForm title={"Create a New Listing"} />
+      <AddProductForm title={"Edit your Product"} mode={"edit"} />
     </div>
   );
 }
 
-export default AddProductPage;
+export default EditProductPage;

@@ -14,43 +14,37 @@ const port = process.env.PORT || 5000;
 const db = require("./config/db");
 db.connect();
 
-// Configure CORS
 var corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
       ? process.env.FRONTEND_PROD_URL
       : "http://localhost:3000",
-  credentials: true, // Required for cookies
+  credentials: true,
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   optionsSuccessStatus: 204,
 };
 
-// Session configuration
 app.use(
   session({
-    secret: process.env.SESSION_SECRET || "your-strong-secret-key",
+    secret: process.env.SESSION_SECRET || "session-secret",
     resave: false,
     saveUninitialized: false,
     cookie: {
       secure: process.env.NODE_ENV === "production",
       httpOnly: true,
       sameSite: process.env.NODE_ENV === "production" ? "none" : "lax",
-      maxAge: 24 * 60 * 60 * 1000, // 24 hours
+      maxAge: 24 * 60 * 60 * 1000,
     },
   })
 );
 
 // Middlewares
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true, limit: "100mb" }));
 app.use(cors(corsOptions));
 app.use(cookieParser());
 
-// Custom middleware to make user available in routes
 app.use((req, res, next) => {
-  // You can access session data via req.session
-  // For example, if you store user ID in session during login:
-  // req.user = { id: req.session.userId };
   next();
 });
 

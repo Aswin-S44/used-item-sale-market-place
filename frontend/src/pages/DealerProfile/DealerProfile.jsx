@@ -161,7 +161,12 @@ const DealerProfile = () => {
                           {product.askingRate ?? "_"}
                         </p>
                         <div className="product-card-actions">
-                          <button className="product-action-btn">
+                          <button
+                            className="product-action-btn"
+                            onClick={() =>
+                              navigate(`/product/edit/${product._id}`)
+                            }
+                          >
                             <FiEdit2 />
                           </button>
                           <button

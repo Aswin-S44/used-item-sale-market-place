@@ -10,4 +10,7 @@ export const API_ROUTES = {
     DELETE_PRODUCT: `${BACKEND_URL}/api/v1/dealer/product`,
   },
   PRODUCT: {},
+  COMMON: {
+    PRODUCT_DETAILS: `${BACKEND_URL}/api/v1/dealer/product`,
+  },
 };
