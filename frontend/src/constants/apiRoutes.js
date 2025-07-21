@@ -13,5 +13,6 @@ export const API_ROUTES = {
   PRODUCT: {},
   COMMON: {
     PRODUCT_DETAILS: `${BACKEND_URL}/api/v1/dealer/product`,
+    GET_ALL_PRODUCTS: `${BACKEND_URL}/api/v1/user/products`,
   },
 };

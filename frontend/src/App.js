@@ -12,6 +12,10 @@ import AddProductPage from "./pages/AddProductPage/AddProductPage";
 import NotFound from "./pages/NotFound/NotFound";
 import { UserProvider } from "./context/UserContext";
 import EditProductPage from "./pages/EditProductPage/EditProductPage";
+import ExploreAllProductsPage from "./pages/ExploreAllProductsPage/ExploreAllProductsPage";
+import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
+import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 
 function App() {
   return (
@@ -34,6 +38,10 @@ function App() {
               <Route path="/profile" element={<DealerProfile />} />
               <Route path="/add/product" element={<AddProductPage />} />
               <Route path="/product/edit/:id" element={<EditProductPage />} />
+              <Route path="/used-items" element={<ExploreAllProductsPage />} />
+              <Route path="/used-item/:id" element={<ProductDetailsPage />} />
+              <Route path="/about-us" element={<AboutUsPage />} />
+              <Route path="/contact-us" element={<ContactUsPage />} />
             </Routes>
             <Footer />
           </main>

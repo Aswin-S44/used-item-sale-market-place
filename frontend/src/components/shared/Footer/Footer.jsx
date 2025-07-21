@@ -20,7 +20,7 @@ function Footer() {
             <h4>Quick Links</h4>
             <ul>
               <li>
-                <a href="#">About Us</a>
+                <a href="/about-us">About Us</a>
               </li>
               <li>
                 <a href="#">How It Works</a>
@@ -29,7 +29,7 @@ function Footer() {
                 <a href="#">FAQ</a>
               </li>
               <li>
-                <a href="#">Contact Us</a>
+                <a href="/contact-us">Contact Us</a>
               </li>
             </ul>
           </div>
