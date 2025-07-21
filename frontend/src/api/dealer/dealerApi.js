@@ -27,3 +27,10 @@ export const deleteProductById = async (dealerId) => {
     `${API_ROUTES.DEALER.DELETE_PRODUCT}/${dealerId}`
   );
 };
+
+export const updateProductById = async (productId, updatedData) => {
+  return await axiosInstance.patch(
+    `${API_ROUTES.DEALER.UPDATE_PRODUCT}/${productId}`,
+    updatedData
+  );
+};

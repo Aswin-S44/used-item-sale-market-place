@@ -8,6 +8,7 @@ export const API_ROUTES = {
     GET_MY_PROFILE: `${BACKEND_URL}/api/v1/dealer/me`,
     GET_DEALER_PRODUCTS: `${BACKEND_URL}/api/v1/dealer/products`,
     DELETE_PRODUCT: `${BACKEND_URL}/api/v1/dealer/product`,
+    UPDATE_PRODUCT: `${BACKEND_URL}/api/v1/dealer/product`,
   },
   PRODUCT: {},
   COMMON: {

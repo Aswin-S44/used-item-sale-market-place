@@ -18,12 +18,14 @@ import {
   PRODUCT_CATEGORY_TYPES,
   PRODUCT_CONDITION_TYPES,
 } from "../../../constants/appConstants";
-import { AddProduct } from "../../../api/dealer/dealerApi";
-import { useParams } from "react-router-dom";
+import { AddProduct, updateProductById } from "../../../api/dealer/dealerApi";
+import { useNavigate, useParams } from "react-router-dom";
 import { getProductById } from "../../../api/common/commonApis";
+import Swal from "sweetalert2";
 
 function AddProductForm({ title, mode = "add" }) {
   const { id } = useParams();
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -43,7 +45,7 @@ function AddProductForm({ title, mode = "add" }) {
   const [errors, setErrors] = useState({});
   const [images, setImages] = useState([]);
   const [initialLoad, setInitialLoad] = useState(mode === "edit");
-
+ 
   useEffect(() => {
     if (mode === "edit" && id) {
       const fetchProduct = async () => {
@@ -96,7 +98,7 @@ function AddProductForm({ title, mode = "add" }) {
     if (!formData.askingRate) newErrors.askingRate = "Asking Price is required";
     if (!formData.description.trim())
       newErrors.description = "Detailed Description is required";
-    if (formData.images.length === 0)
+    if (mode != "edit" && formData.images.length === 0)
       newErrors.images = "At least one image is required";
     if (formData.features.length === 0)
       newErrors.features = "At least one feature is required";
@@ -180,12 +182,30 @@ function AddProductForm({ title, mode = "add" }) {
     e.preventDefault();
     if (validateForm()) {
       setLoading(true);
+      // if (mode == "edit" && id) {
+      //   formData.images = images;
+      //   const resp = await updateProductById(id, formData);
+      //   if (resp.status === STATUS_OK) {
+      //     Swal.fire({
+      //       title: "Product updated",
+      //       icon: "success",
+      //       draggable: false,
+      //     });
+      //     navigate("/profile");
+      //   }
+      // } else {
       formData.images = images;
       const resp = await AddProduct(formData);
       setLoading(false);
       if (resp.status === STATUS_CREATED) {
-        alert("Product added");
+        Swal.fire({
+          title: "Product added",
+          icon: "success",
+          draggable: false,
+        });
+        navigate("/profile");
       }
+      //}
     }
   };
 

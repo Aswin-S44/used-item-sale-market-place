@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
+
 import "./DealerProfile.css";
 import {
   FiShare2,
@@ -13,6 +15,8 @@ import {
   FiCheckCircle,
 } from "react-icons/fi";
 import { useNavigate } from "react-router-dom";
+import { FaEye } from "react-icons/fa";
+
 import {
   deleteProductById,
   getDealerProducts,
@@ -21,6 +25,7 @@ import {
 import useUser from "../../hooks/useUser";
 import { DEFAULT_AVATAR_IMAGE } from "../../constants/appConstants";
 import { STATUS_OK } from "../../constants/httpStatusCodes";
+import Loader from "../../components/Loader/Loader";
 
 const DealerProfile = () => {
   const navigate = useNavigate();
@@ -46,14 +51,38 @@ const DealerProfile = () => {
 
   const handleDeleteProduct = async (productId) => {
     try {
-      const res = await deleteProductById(productId);
-      console.log("deleted res--------", res ? res : "no res");
+      const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+          confirmButton: "btn btn-success",
+          cancelButton: "btn btn-danger",
+        },
+        buttonsStyling: false,
+      });
+      swalWithBootstrapButtons
+        .fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonText: "Yes, delete it!",
+          cancelButtonText: "No, cancel!",
+          reverseButtons: true,
+        })
+        .then(async (result) => {
+          if (result.isConfirmed) {
+            await deleteProductById(productId);
+            swalWithBootstrapButtons.fire({
+              title: "Deleted!",
+              text: "Your file has been deleted.",
+              icon: "success",
+            });
+          }
+        });
     } catch (error) {}
   };
 
   return (
     <div className="dashboard-container">
-      {console.log("products---------", products)}
       <aside className="profile-sidebar">
         <div className="profile-card">
           <img
@@ -61,6 +90,7 @@ const DealerProfile = () => {
             alt="Dealer Avatar"
             className="profile-avatar"
           />
+          {console.log("person-----------", profile ? profile : "no profile")}
           <h1 className="profile-name">{profile?.firstName}</h1>
           <p className="profile-location">{profile?.location ?? "_"}</p>
           <p className="profile-member-since">{profile?.createdAt ?? "_"}</p>
@@ -137,7 +167,9 @@ const DealerProfile = () => {
 
           {activeTab === "products" && (
             <div className="product-list fade-in">
-              {products.length == 0 ? (
+              {loading ? (
+                <>Loading....</>
+              ) : products.length == 0 ? (
                 <>No products available</>
               ) : (
                 products.map((product) => (
@@ -159,6 +191,13 @@ const DealerProfile = () => {
                       <div className="product-footer">
                         <p className="product-price">
                           {product.askingRate ?? "_"}
+                        </p>
+                        <p>
+                          {product.views}{" "}
+                          <FaEye
+                            className="mt-1"
+                            style={{ top: "2px", position: "relative" }}
+                          />
                         </p>
                         <div className="product-card-actions">
                           <button
