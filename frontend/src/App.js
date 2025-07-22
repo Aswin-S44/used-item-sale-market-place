@@ -16,6 +16,8 @@ import ExploreAllProductsPage from "./pages/ExploreAllProductsPage/ExploreAllPro
 import ProductDetailsPage from "./pages/ProductDetailsPage/ProductDetailsPage";
 import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
+import CategoryNav from "./components/CategoryNav/CategoryNav";
+import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
 
 function App() {
   return (
@@ -24,6 +26,7 @@ function App() {
         <div>
           <main>
             <Header />
+
             <Routes>
               <Route
                 path="*"
@@ -42,6 +45,7 @@ function App() {
               <Route path="/used-item/:id" element={<ProductDetailsPage />} />
               <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
+              <Route path="/reviews" element={<ReviewsPage />} />
             </Routes>
             <Footer />
           </main>

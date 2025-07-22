@@ -5,6 +5,7 @@ import ProductCarousel from "../../components/ProductCarousel/ProductCarousel";
 import FeatureListing from "../../sections/FeatureListing/FeatureListing";
 import CategoriesList from "../../components/CategoriesList/CategoriesList";
 import { getAllProducts } from "../../api/users/userApis";
+import CategoryNav from "../../components/CategoryNav/CategoryNav";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -30,6 +31,7 @@ function HomePage() {
   }, []);
   return (
     <div>
+      <CategoryNav />
       <Banner />
       <CategoriesList />
       <FeatureListing

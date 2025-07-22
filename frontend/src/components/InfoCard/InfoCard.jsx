@@ -1,25 +1,31 @@
 import React from "react";
-// We don't need to import the CSS here as the parent will handle it.
 
 function InfoCard({ title, items, linkText, linkHref }) {
+  // Use the first item for the main image and the rest for thumbnails
+  const mainItem = items[0];
+  const thumbItems = items.slice(1, 4); // Get the next 3 items
+
   return (
-    <div className="info-card">
-      <h3 className="info-card-title">{title}</h3>
-
-      <div className="info-card-content-grid">
-        {/* We map over the 'items' array to create the 2x2 grid */}
-        {items.map((item, index) => (
-          <a href={item.href || "#"} className="info-card-item" key={index}>
-            <img src={item.image} alt={item.caption} />
-            <p>{item.caption}</p>
-          </a>
-        ))}
+    <article className="info-card">
+      <div className="info-card-gallery">
+        <div className="main-image">
+          <img src={mainItem.image} alt={mainItem.caption} />
+        </div>
+        <div className="thumb-grid">
+          {thumbItems.map((item, index) => (
+            <div key={index} className="thumb-image">
+              <img src={item.image} alt={item.caption} />
+            </div>
+          ))}
+        </div>
       </div>
-
-      <a href={linkHref || "#"} className="info-card-link">
-        {linkText}
-      </a>
-    </div>
+      <div className="info-card-footer">
+        <h3 className="info-card-title">{title}</h3>
+        <a href={linkHref || "#"} className="info-card-link">
+          {linkText}
+        </a>
+      </div>
+    </article>
   );
 }
 

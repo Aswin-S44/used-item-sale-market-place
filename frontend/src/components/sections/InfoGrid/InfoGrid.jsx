@@ -1,17 +1,15 @@
 import React from "react";
-import "./InfoGrid.css"; // Import the styles for this section
 import InfoCard from "../../InfoCard/InfoCard";
+import "./InfoGrid.css";
 
-// --- DUMMY DATA ---
-// In a real app, this would come from an API.
 const cardData = [
   {
-    title: "Appliances for your home | Up to 55% off",
+    title: "Appliances for your home",
     linkText: "See more",
     items: [
       {
         image:
-          "https://images.unsplash.com/photo-1571086201103-9d5649a435ae?w=300",
+          "https://images.unsplash.com/photo-1571086201103-9d5649a435ae?w=400",
         caption: "Air conditioners",
       },
       {
@@ -37,7 +35,7 @@ const cardData = [
     items: [
       {
         image:
-          "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=300",
+          "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=400",
         caption: "Cushion covers, bedsheets",
       },
       {
@@ -58,12 +56,12 @@ const cardData = [
     ],
   },
   {
-    title: "PlayStation 5 Slim & Accessories",
-    linkText: "See all deals",
+    title: "Gaming consoles & accessories",
+    linkText: "See deals",
     items: [
       {
         image:
-          "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=300",
+          "https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400",
         caption: "PS5 Slim digital edition",
       },
       {
@@ -84,18 +82,18 @@ const cardData = [
     ],
   },
   {
-    title: "Automotive essentials | Up to 60% off",
+    title: "Automotive essentials",
     linkText: "Shop now",
     items: [
       {
         image:
-          "https://images.unsplash.com/photo-1613553422365-06354446b7a5?w=300",
-        caption: "Cleaning supplies",
+          "https://images.unsplash.com/photo-1568605117036-5fe5e7185743?w=400",
+        caption: "Tire & wheel care",
       },
       {
         image:
-          "https://images.unsplash.com/photo-1568605117036-5fe5e7185743?w=300",
-        caption: "Tire & wheel care",
+          "https://images.unsplash.com/photo-1613553422365-06354446b7a5?w=300",
+        caption: "Cleaning supplies",
       },
       {
         image:

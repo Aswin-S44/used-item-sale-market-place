@@ -1,29 +1,44 @@
-import React, { useState } from "react";
-import "./Header.css"; // Import the component-specific CSS
+import React, { useState, useEffect, useRef } from "react";
+import "./Header.css";
 import { useNavigate } from "react-router-dom";
 
 function Header() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
+
   const navigate = useNavigate();
+  const dropdownRef = useRef(null);
 
-  const openSidebar = () => {
-    setSidebarOpen(true);
+  const openSidebar = () => setSidebarOpen(true);
+  const closeSidebar = () => setSidebarOpen(false);
+  const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
+
+  const handleLogout = () => {
+    setDropdownOpen(false);
+    setIsLoggedIn(false);
+    navigate("/");
   };
 
-  const closeSidebar = () => {
-    setSidebarOpen(false);
-  };
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownRef]);
 
   return (
-    // Use a Fragment <> to avoid an unnecessary div wrapper
     <>
-      {/* Conditionally apply the 'active' class based on state */}
       <div className={`sidebar ${isSidebarOpen ? "active" : ""}`}>
         <div className="sidebar-header">
-          <a href="#" className="sidebar-logo">
+          <a href="/" className="sidebar-logo">
             ReVibe
           </a>
-          {/* Add onClick handler to the close button */}
           <button className="close-btn" onClick={closeSidebar}>
             <i className="fas fa-times"></i>
           </button>
@@ -31,8 +46,8 @@ function Header() {
         <nav className="sidebar-nav">
           <ul>
             <li>
-              <a href="#">
-                <i className="fas fa-mobile-alt"></i> Electronics
+              <a href="/">
+                <i className="fas fa-mobile-alt"></i> Home
               </a>
             </li>
             <li>
@@ -53,16 +68,26 @@ function Header() {
           </ul>
         </nav>
         <div className="sidebar-actions">
-          <a href="/login" className="btn btn-secondary">
-            Log In
-          </a>
+          {isLoggedIn ? (
+            <>
+              <a href="/profile" className="btn btn-secondary">
+                Profile
+              </a>
+              <button onClick={handleLogout} className="btn btn-danger">
+                Log Out
+              </button>
+            </>
+          ) : (
+            <a href="/login" className="btn btn-secondary">
+              Log In
+            </a>
+          )}
           <a href="#" className="btn btn-primary">
             <i className="fas fa-plus-circle"></i> Sell Item
           </a>
         </div>
       </div>
 
-      {/* Conditionally apply the 'active' class and add onClick handler */}
       <div
         className={`overlay ${isSidebarOpen ? "active" : ""}`}
         onClick={closeSidebar}
@@ -77,28 +102,54 @@ function Header() {
             <nav className="main-nav">
               <ul>
                 <li>
-                  <a href="#">Electronics</a>
+                  <a href="/">Home</a>
                 </li>
                 <li>
-                  <a href="#">Furniture</a>
+                  <a href="/about-us">About-us</a>
                 </li>
                 <li>
-                  <a href="#">Fashion</a>
+                  <a href="/reviews">Reviews</a>
                 </li>
                 <li>
-                  <a href="#">Vehicles</a>
+                  <a href="/contact-us">Contact-Us</a>
                 </li>
               </ul>
             </nav>
             <div className="header-actions">
-              <a href="/login" className="btn btn-secondary">
-                Log In
-              </a>
-              <a href="#" className="btn btn-primary">
-                <i className="fas fa-plus-circle"></i> Sell Item
-              </a>
+              {isLoggedIn ? (
+                <>
+                  <button className="favorite-btn" aria-label="Favorites">
+                    <i className="fas fa-heart"></i>
+                  </button>
+                  <div className="avatar-container" ref={dropdownRef}>
+                    <img
+                      src="https://i.pravatar.cc/40"
+                      alt="User Avatar"
+                      className="avatar-image"
+                      onClick={toggleDropdown}
+                    />
+                    {isDropdownOpen && (
+                      <div className="avatar-dropdown">
+                        <a href="/profile">Profile</a>
+                        <button onClick={handleLogout}>Logout</button>
+                      </div>
+                    )}
+                  </div>
+                  <a href="#" className="btn btn-primary">
+                    <i className="fas fa-plus-circle"></i> Sell Item
+                  </a>
+                </>
+              ) : (
+                <>
+                  <a href="/login" className="btn btn-secondary">
+                    Log In
+                  </a>
+                  <a href="#" className="btn btn-primary">
+                    <i className="fas fa-plus-circle"></i> Sell Item
+                  </a>
+                </>
+              )}
             </div>
-            {/* Add onClick handler to the hamburger menu toggle */}
             <button
               className="nav-toggle"
               aria-label="toggle navigation"
