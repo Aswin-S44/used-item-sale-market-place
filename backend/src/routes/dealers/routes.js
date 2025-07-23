@@ -14,6 +14,12 @@ const {
   updateProductStatus,
 } = require("../../controllers/updateProductStatus");
 const { updateProfile } = require("../../controllers/updateProfile");
+const {
+  verifyCurrentPassword,
+} = require("../../controllers/verifyCurrentPassword");
+const {
+  verifyAndChangePassword,
+} = require("../../controllers/verifyAndChangePassword");
 
 const router = express.Router();
 router.get("/me", userVerification, getMe);
@@ -28,5 +34,11 @@ router.delete("/product/:productId", deleteProductById);
 router.get("/product/:productId", getProductById);
 router.patch("/product/:productId", updateProductById);
 router.patch("/product/:productId/status", updateProductStatus);
+router.post("/password/check", userVerification, verifyCurrentPassword);
+router.post(
+  "/password/verify-and-reset",
+  userVerification,
+  verifyAndChangePassword
+);
 
 module.exports = router;

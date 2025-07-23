@@ -8,6 +8,7 @@ import { updateProfile } from "../../api/dealer/dealerApi";
 import httpStatusCodes from "../../constants/httpStatusCodes";
 import { useNavigate } from "react-router-dom";
 import { IoIosArrowBack } from "react-icons/io";
+import ChangePasswordForm from "../../components/ChangePasswordForm/ChangePasswordForm";
 
 function EditProfilePage() {
   const { user: profile } = useUser();
@@ -237,11 +238,15 @@ function EditProfilePage() {
         )}
         {activeSubPage === "password" && (
           <div>
+            <a href="/profile">
+              <IoIosArrowBack className="mt-2" />
+              Back
+            </a>
             <header className="content-header">
               <h2>Change Password</h2>
               <p>Update your password here.</p>
             </header>
-            {/* Password change form would go here */}
+            <ChangePasswordForm />
           </div>
         )}
       </main>

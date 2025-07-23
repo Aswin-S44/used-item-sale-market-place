@@ -46,3 +46,11 @@ export const updateProductStatusById = async (productId, status) => {
 export const updateProfile = async (data) => {
   return await axiosInstance.patch(`${API_ROUTES.DEALER.UPDATE_PROFILE}`, data);
 };
+
+export const verifyPassword = async (data) => {
+  return await axiosInstance.post(`${API_ROUTES.DEALER.VERIFY_PASSWORD}`, data);
+};
+
+export const verifyAndChangePassword = async (data) => {
+  return await axiosInstance.post(`${API_ROUTES.DEALER.CHANGE_PASSWORD}`, data);
+};

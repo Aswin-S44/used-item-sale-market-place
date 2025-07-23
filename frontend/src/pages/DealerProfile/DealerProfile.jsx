@@ -155,9 +155,9 @@ const DealerProfile = () => {
             <h1 className="profile-name">
               {profile?.firstName || "Dealer Name"}
             </h1>
-            <p className="profile-location">
+            {/* <p className="profile-location">
               {profile?.location || "Location not set"}
-            </p>
+            </p> */}
             <div className="profile-stats">
               <div className="stat-item">
                 <span className="stat-item-value">

@@ -11,6 +11,8 @@ export const API_ROUTES = {
     UPDATE_PRODUCT: `${BACKEND_URL}/api/v1/dealer/product`,
     UPDATE_PRODUCT_STATUS: `${BACKEND_URL}/api/v1/dealer/product`,
     UPDATE_PROFILE: `${BACKEND_URL}/api/v1/dealer`,
+    VERIFY_PASSWORD: `${BACKEND_URL}/api/v1/dealer/password/check`,
+    CHANGE_PASSWORD: `${BACKEND_URL}/api/v1/dealer/password/verify-and-reset`,
   },
   PRODUCT: {},
   COMMON: {
