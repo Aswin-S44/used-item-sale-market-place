@@ -16,9 +16,10 @@ export const getMyProfile = async (userId) => {
   return await axiosInstance.get(`${API_ROUTES.DEALER.GET_MY_PROFILE}`);
 };
 
-export const getDealerProducts = async (dealerId) => {
+export const getDealerProducts = async (dealerId, params) => {
   return await axiosInstance.get(
-    `${API_ROUTES.DEALER.GET_DEALER_PRODUCTS}/${dealerId}`
+    `${API_ROUTES.DEALER.GET_DEALER_PRODUCTS}/${dealerId}`,
+    { params }
   );
 };
 
@@ -33,4 +34,15 @@ export const updateProductById = async (productId, updatedData) => {
     `${API_ROUTES.DEALER.UPDATE_PRODUCT}/${productId}`,
     updatedData
   );
+};
+
+export const updateProductStatusById = async (productId, status) => {
+  return await axiosInstance.patch(
+    `${API_ROUTES.DEALER.UPDATE_PRODUCT_STATUS}/${productId}`,
+    { status }
+  );
+};
+
+export const updateProfile = async (data) => {
+  return await axiosInstance.patch(`${API_ROUTES.DEALER.UPDATE_PROFILE}`, data);
 };

@@ -9,6 +9,8 @@ export const API_ROUTES = {
     GET_DEALER_PRODUCTS: `${BACKEND_URL}/api/v1/dealer/products`,
     DELETE_PRODUCT: `${BACKEND_URL}/api/v1/dealer/product`,
     UPDATE_PRODUCT: `${BACKEND_URL}/api/v1/dealer/product`,
+    UPDATE_PRODUCT_STATUS: `${BACKEND_URL}/api/v1/dealer/product`,
+    UPDATE_PROFILE: `${BACKEND_URL}/api/v1/dealer`,
   },
   PRODUCT: {},
   COMMON: {

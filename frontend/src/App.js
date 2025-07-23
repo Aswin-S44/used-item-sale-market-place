@@ -18,6 +18,7 @@ import AboutUsPage from "./pages/AboutUsPage/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 import CategoryNav from "./components/CategoryNav/CategoryNav";
 import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
+import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
               <Route path="/about-us" element={<AboutUsPage />} />
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/reviews" element={<ReviewsPage />} />
+              <Route path="/profile/edit/:id" element={<EditProfilePage />} />
             </Routes>
             <Footer />
           </main>
