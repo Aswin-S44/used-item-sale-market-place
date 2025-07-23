@@ -5,6 +5,10 @@ export const SignIn = async (loginData) => {
   return await axiosInstance.post(API_ROUTES.DEALER.LOGIN, loginData);
 };
 
+export const SignUp = async (signupData) => {
+  return await axiosInstance.post(API_ROUTES.DEALER.SIGNUP, signupData);
+};
+
 export const AddProduct = async (productDetails) => {
   return await axiosInstance.post(
     API_ROUTES.DEALER.ADD_PRODUCT,

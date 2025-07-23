@@ -19,6 +19,7 @@ import ContactUsPage from "./pages/ContactUsPage/ContactUsPage";
 import CategoryNav from "./components/CategoryNav/CategoryNav";
 import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
+import SignupPage from "./pages/SignupPage/SignupPage";
 
 function App() {
   return (
@@ -48,6 +49,7 @@ function App() {
               <Route path="/contact-us" element={<ContactUsPage />} />
               <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="/profile/edit/:id" element={<EditProfilePage />} />
+              <Route path="/signup" element={<SignupPage />} />
             </Routes>
             <Footer />
           </main>
