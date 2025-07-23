@@ -54,3 +54,7 @@ export const verifyPassword = async (data) => {
 export const verifyAndChangePassword = async (data) => {
   return await axiosInstance.post(`${API_ROUTES.DEALER.CHANGE_PASSWORD}`, data);
 };
+
+export const viewAnalytics = async () => {
+  return await axiosInstance.get(`${API_ROUTES.DEALER.VIEW_ANALYTICS}`);
+};

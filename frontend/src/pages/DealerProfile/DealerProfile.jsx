@@ -31,6 +31,7 @@ import {
 import { STATUS_OK } from "../../constants/httpStatusCodes";
 import ProductCardSkeleton from "../../components/ProductCardSkeleton/ProductCardSkeleton";
 import { ToastContainer, toast } from "react-toastify";
+import DealerAnalytics from "../../components/DealerAnalytics/DealerAnalytics";
 
 const DealerProfile = () => {
   const navigate = useNavigate();
@@ -215,48 +216,7 @@ const DealerProfile = () => {
         </header>
 
         <div className="tab-content">
-          {activeTab === "analytics" && (
-            <div className="analytics-view fade-in">
-              <div className="stats-grid">
-                <div className="stat-card">
-                  <div className="stat-icon revenue">
-                    <FiDollarSign />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-title">Total Revenue</span>
-                    <span className="stat-value">$287,400</span>
-                  </div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-icon views">
-                    <FiEye />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-title">Total Product Views</span>
-                    <span className="stat-value">12,890</span>
-                  </div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-icon sales">
-                    <FiTrendingUp />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-title">Conversion Rate</span>
-                    <span className="stat-value">3.2%</span>
-                  </div>
-                </div>
-                <div className="stat-card">
-                  <div className="stat-icon inventory">
-                    <FiBox />
-                  </div>
-                  <div className="stat-info">
-                    <span className="stat-title">Active Listings</span>
-                    <span className="stat-value">{products.length}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          )}
+          {activeTab === "analytics" && <DealerAnalytics />}
 
           {activeTab === "products" && (
             <div className="product-list-container fade-in">

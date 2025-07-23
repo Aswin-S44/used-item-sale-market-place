@@ -20,6 +20,7 @@ const {
 const {
   verifyAndChangePassword,
 } = require("../../controllers/verifyAndChangePassword");
+const { getDealerAnalytics } = require("../../controllers/getDealerAnalytics");
 
 const router = express.Router();
 router.get("/me", userVerification, getMe);
@@ -40,5 +41,6 @@ router.post(
   userVerification,
   verifyAndChangePassword
 );
+router.get("/analytics", userVerification, getDealerAnalytics);
 
 module.exports = router;

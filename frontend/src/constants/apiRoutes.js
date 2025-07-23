@@ -13,6 +13,7 @@ export const API_ROUTES = {
     UPDATE_PROFILE: `${BACKEND_URL}/api/v1/dealer`,
     VERIFY_PASSWORD: `${BACKEND_URL}/api/v1/dealer/password/check`,
     CHANGE_PASSWORD: `${BACKEND_URL}/api/v1/dealer/password/verify-and-reset`,
+    VIEW_ANALYTICS: `${BACKEND_URL}/api/v1/dealer/analytics`,
   },
   PRODUCT: {},
   COMMON: {
