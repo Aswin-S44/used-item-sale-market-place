@@ -1,30 +1,31 @@
 import React from "react";
 
 function InfoCard({ title, items, linkText, linkHref }) {
-  // Use the first item for the main image and the rest for thumbnails
   const mainItem = items[0];
-  const thumbItems = items.slice(1, 4); // Get the next 3 items
+  const thumbItems = items.slice(1, 4);
 
   return (
     <article className="info-card">
-      <div className="info-card-gallery">
-        <div className="main-image">
+      <h3 className="info-card-title">{title}</h3>
+      <div className="info-card-content-grid">
+        <a href={linkHref || "#"} className="main-item">
           <img src={mainItem.image} alt={mainItem.caption} />
-        </div>
-        <div className="thumb-grid">
+          <p className="main-item-caption">{mainItem.caption}</p>
+        </a>
+        <div className="thumb-list">
           {thumbItems.map((item, index) => (
-            <div key={index} className="thumb-image">
-              <img src={item.image} alt={item.caption} />
-            </div>
+            <a href={linkHref || "#"} key={index} className="thumb-item">
+              <div className="thumb-image-wrapper">
+                <img src={item.image} alt={item.caption} />
+              </div>
+              <p className="thumb-caption">{item.caption}</p>
+            </a>
           ))}
         </div>
       </div>
-      <div className="info-card-footer">
-        <h3 className="info-card-title">{title}</h3>
-        <a href={linkHref || "#"} className="info-card-link">
-          {linkText}
-        </a>
-      </div>
+      <a href={linkHref || "#"} className="info-card-link">
+        {linkText}
+      </a>
     </article>
   );
 }

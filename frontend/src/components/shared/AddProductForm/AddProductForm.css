@@ -49,6 +49,7 @@
   .section-header {
     display: flex;
     align-items: center;
+    flex-direction: column;
     gap: 0.75rem;
     margin-bottom: 1.5rem;
     padding-bottom: 1rem;

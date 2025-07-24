@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./CategoriesList.css";
+import { fetchEntries } from "../../contentfull/contentfulClient";
+import { convertContentfullResponse } from "../../utils/utils";
 
-const categories = [
+const categories1 = [
   {
     id: 1,
     name: "Furniture",
@@ -41,19 +43,39 @@ const categories = [
 ];
 
 function CategoriesList() {
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      const res = await fetchEntries();
+      setLoading(false);
+
+      if (res) {
+        let formatedData = await convertContentfullResponse(res);
+
+        setCategories(formatedData);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <section className="categories-section">
       <h2 className="section-title">Browse By Category</h2>
       <div className="categories-grid">
         {categories.map((category) => (
           <a
-            href="#"
+            href={`/used-items?category=${category.slug}`}
             key={category.id}
             className="category-card"
-            style={{ backgroundImage: `url(${category.imageUrl})` }}
+            style={{
+              backgroundImage: `url(${category.image})`,
+            }}
           >
             <div className="category-overlay">
-              <span className="category-name">{category.name}</span>
+              <span className="category-name">{category.title ?? "_"}</span>
             </div>
           </a>
         ))}

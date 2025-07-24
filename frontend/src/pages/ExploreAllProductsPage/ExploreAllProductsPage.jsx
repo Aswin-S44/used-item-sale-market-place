@@ -143,7 +143,6 @@ function ExploreAllProductsPage() {
         <main className="products-grid">
           {dummyProducts.map((product) => (
             <div key={product.id} className="product-card">
-              {console.log("product--------", product)}
               <img
                 src={product.imageUrl}
                 alt={product.name}

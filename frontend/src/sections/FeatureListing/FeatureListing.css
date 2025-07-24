@@ -123,3 +123,28 @@
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(74, 71, 163, 0.4);
 }
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 16px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    display: inline-block; /* Ensures padding and other properties work correctly */
+  }
+  
+  /* Specific style for the 'New' badge */
+  .badge-new {
+    background-color: #28a745; /* A nice green color */
+  }
+  
+  /* Specific style for the 'Used' badge */
+  .badge-used {
+    background-color: #ffc107; /* A nice amber/orange color */
+    color: #212529; /* Darker text for better contrast on a light background */
+  }
+
+  .location-icon{
+    font-size: 15px;
+  }
