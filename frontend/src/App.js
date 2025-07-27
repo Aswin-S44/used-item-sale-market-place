@@ -21,6 +21,7 @@ import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
 import FavouriteItemsPage from "./pages/FavouriteItemsPage/FavouriteItemsPage";
+import BackToTop from "./components/BackToTop/BackToTop";
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
               <Route path="/signup" element={<SignupPage />} />
               <Route path="/favourites" element={<FavouriteItemsPage />} />
             </Routes>
+            <BackToTop />
             <Footer />
           </main>
         </div>

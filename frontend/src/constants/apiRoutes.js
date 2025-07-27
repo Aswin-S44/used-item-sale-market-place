@@ -14,6 +14,7 @@ export const API_ROUTES = {
     VERIFY_PASSWORD: `${BACKEND_URL}/api/v1/dealer/password/check`,
     CHANGE_PASSWORD: `${BACKEND_URL}/api/v1/dealer/password/verify-and-reset`,
     VIEW_ANALYTICS: `${BACKEND_URL}/api/v1/dealer/analytics`,
+    LOGOUT: `${BACKEND_URL}/api/v1/dealer/logout`,
   },
   PRODUCT: {},
   COMMON: {

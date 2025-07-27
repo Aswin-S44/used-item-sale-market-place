@@ -8,7 +8,7 @@ const Products = require("../models/productModel");
 module.exports.getProductById = async (req, res) => {
   try {
     const productId = req.params.productId;
-    const product = await Products.findById(productId);
+    const product = await Products.findById(productId).populate("dealerId");
     if (!product) {
       return res
         .status(STATUS_NOT_FOUND)

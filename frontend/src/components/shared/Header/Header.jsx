@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./Header.css";
 import { useNavigate } from "react-router-dom";
+import useUser from "../../../hooks/useUser";
+import PopupModal from "../../Modal/Modal";
+import { DEFAULT_AVATAR_IMAGE } from "../../../constants/appConstants";
+import { Logout } from "../../../api/dealer/dealerApi";
 
 function Header() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const { user, userId } = useUser();
+  const [openModal, setOpenModal] = useState(false);
 
   const navigate = useNavigate();
   const dropdownRef = useRef(null);
@@ -14,7 +20,15 @@ function Header() {
   const closeSidebar = () => setSidebarOpen(false);
   const toggleDropdown = () => setDropdownOpen(!isDropdownOpen);
 
-  const handleLogout = () => {
+  useEffect(() => {
+    if (user) {
+      setIsLoggedIn(true);
+    }
+  }, [user]);
+
+  const handleLogout = async () => {
+    await Logout();
+    localStorage.removeItem("token");
     setDropdownOpen(false);
     setIsLoggedIn(false);
     navigate("/");
@@ -31,6 +45,14 @@ function Header() {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [dropdownRef]);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
 
   return (
     <>
@@ -126,8 +148,9 @@ function Header() {
                     <i className="fas fa-heart"></i>
                   </button>
                   <div className="avatar-container" ref={dropdownRef}>
+                    {console.log("user-----------", user ? user : "no user")}
                     <img
-                      src="https://i.pravatar.cc/40"
+                      src={user.profileImage ?? DEFAULT_AVATAR_IMAGE}
                       alt="User Avatar"
                       className="avatar-image"
                       onClick={toggleDropdown}
@@ -139,18 +162,18 @@ function Header() {
                       </div>
                     )}
                   </div>
-                  <a href="#" className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={handleOpenModal}>
                     <i className="fas fa-plus-circle"></i> Sell Item
-                  </a>
+                  </button>
                 </>
               ) : (
                 <>
                   <a href="/login" className="btn btn-secondary">
                     Log In
                   </a>
-                  <a href="#" className="btn btn-primary">
+                  <button className="btn btn-primary" onClick={handleOpenModal}>
                     <i className="fas fa-plus-circle"></i> Sell Item
-                  </a>
+                  </button>
                 </>
               )}
             </div>
@@ -163,6 +186,12 @@ function Header() {
             </button>
           </div>
         </div>
+
+        <PopupModal
+          isModalOpen={openModal}
+          closeModal={handleCloseModal}
+          title={"sample ttle"}
+        />
       </header>
     </>
   );

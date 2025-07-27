@@ -94,3 +94,16 @@ module.exports.SignIn = async (req, res, next) => {
     res.status(STATUS_INTERNAL_SERVER_ERROR).json({ message: error });
   }
 };
+
+module.exports.Logout = async (req, res) => {
+  res.clearCookie("token", {
+    httpOnly: true,
+    sameSite: "Lax",
+    secure: process.env.NODE_ENV === "production",
+  });
+
+  return res.status(STATUS_OK).json({
+    message: "Logged out successfully",
+    success: true,
+  });
+};

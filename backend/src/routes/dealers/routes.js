@@ -1,5 +1,5 @@
 const express = require("express");
-const { Signup, SignIn } = require("../../controllers/AuthController");
+const { Signup, SignIn, Logout } = require("../../controllers/AuthController");
 const { addProduct } = require("../../controllers/addProduct");
 const { userVerification } = require("../../../middlewares/authMiddleware");
 const { getDealerById } = require("../../controllers/getDealerById");
@@ -26,6 +26,7 @@ const router = express.Router();
 router.get("/me", userVerification, getMe);
 router.post("/signup", Signup);
 router.post("/signin", SignIn);
+router.post("/logout", Logout);
 router.patch("/", userVerification, updateProfile);
 
 router.post("/product", userVerification, addProduct);

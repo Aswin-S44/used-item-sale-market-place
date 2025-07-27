@@ -62,3 +62,7 @@ export const verifyAndChangePassword = async (data) => {
 export const viewAnalytics = async () => {
   return await axiosInstance.get(`${API_ROUTES.DEALER.VIEW_ANALYTICS}`);
 };
+
+export const Logout = async () => {
+  return await axiosInstance.post(`${API_ROUTES.DEALER.LOGOUT}`);
+};

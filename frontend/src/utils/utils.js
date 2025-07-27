@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 export const convertContentfullResponse = async (resp) => {
   const formattedResponse = [];
 
@@ -24,11 +26,16 @@ export const convertContentfullResponse = async (resp) => {
           })) || [],
       };
 
-      console.log("entry---------", entry);
-
       formattedResponse.push(entry);
     });
   }
 
   return formattedResponse;
+};
+
+export const formatDate = (isoDate) => {
+  if (!isoDate) return "N/A"; // or return empty string or null
+  const date = new Date(isoDate);
+  if (isNaN(date)) return "Invalid date"; // handle malformed values
+  return format(date, "do MMMM yyyy");
 };
