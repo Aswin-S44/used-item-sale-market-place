@@ -67,3 +67,8 @@
       flex: 0 0 auto; /* Prevents items from shrinking */
     }
   }
+
+  .category-im{
+    width: 60px;
+    height: 60px;
+  }

@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
+import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 import "./ProductCarousel.css";
 
-// --- DUMMY DATA (to be replaced with your actual data) ---
 const carouselData = [
   {
     title: "Bajaj Herculo Heavy Weight Dry Iron | 1100 Watts",
@@ -49,95 +49,72 @@ const carouselData = [
   },
 ];
 
-function ProductCarousel({ title, linkText, linkHref }) {
-  const trackRef = useRef(null);
-  const [isAtStart, setIsAtStart] = useState(true);
-  const [isAtEnd, setIsAtEnd] = useState(false);
+const getCardClass = (index, activeIndex, totalItems) => {
+  if (index === activeIndex) return "card-active";
 
-  const handleScroll = () => {
-    if (trackRef.current) {
-      const { scrollLeft, scrollWidth, clientWidth } = trackRef.current;
-      setIsAtStart(scrollLeft === 0);
-      setIsAtEnd(scrollLeft + clientWidth >= scrollWidth - 1); // -1 for precision
-    }
+  const nextIndex = (activeIndex + 1) % totalItems;
+  if (index === nextIndex) return "card-next";
+
+  const prevIndex = (activeIndex - 1 + totalItems) % totalItems;
+  if (index === prevIndex) return "card-prev";
+
+  return "card-hidden";
+};
+
+function ProductCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const totalItems = carouselData.length;
+
+  const handleNext = () => {
+    setActiveIndex((prevIndex) => (prevIndex + 1) % totalItems);
   };
 
-  useEffect(() => {
-    const track = trackRef.current;
-    if (track) {
-      track.addEventListener("scroll", handleScroll);
-      handleScroll(); // Initial check
-      return () => track.removeEventListener("scroll", handleScroll);
-    }
-  }, []);
-
-  const scroll = (direction) => {
-    if (trackRef.current) {
-      const scrollAmount = trackRef.current.clientWidth * 0.8; // Scroll by 80% of visible width
-      trackRef.current.scrollBy({
-        left: direction === "next" ? scrollAmount : -scrollAmount,
-        behavior: "smooth",
-      });
-    }
+  const handlePrev = () => {
+    setActiveIndex((prevIndex) => (prevIndex - 1 + totalItems) % totalItems);
   };
+
+  const activeProduct = carouselData[activeIndex];
 
   return (
-    <section className="product-carousel-section">
-      <div className="container">
-        <div className="carousel-header">
-          <h2 className="carousel-title">{title}</h2>
-          <a href={linkHref || "#"} className="carousel-link">
-            {linkText}
-          </a>
+    <div className="focus-wheel-section">
+      <div className="focus-wheel-container">
+        <div className="focus-wheel-cards">
+          {carouselData.map((product, index) => (
+            <div
+              key={product.id}
+              className={`focus-wheel-card ${getCardClass(
+                index,
+                activeIndex,
+                totalItems
+              )}`}
+            >
+              <img src={product.image} alt={product.title} />
+            </div>
+          ))}
         </div>
-        <div className="carousel-container">
-          <button
-            className="carousel-btn prev"
-            onClick={() => scroll("prev")}
-            disabled={isAtStart}
-            aria-label="Previous slide"
-          >
-            <i className="fas fa-chevron-left"></i>
-          </button>
-
-          <div className="carousel-track" ref={trackRef}>
-            {carouselData.map((product, index) => (
-              <div className="product-slide" key={index}>
-                <div className="slide-image-container">
-                  <img src={product.image} alt={product.title} />
-                </div>
-                <div className="slide-content">
-                  <h4 className="slide-title">{product.title}</h4>
-                  {product.deal && (
-                    <p>
-                      <span className="deal-badge">{product.deal.text}</span>
-                      {product.deal.type === "deal" && (
-                        <span className="deal-text">Limited time deal</span>
-                      )}
-                    </p>
-                  )}
-                  <div className="price-container">
-                    <span className="current-price">₹{product.price}</span>
-                    {product.mrp && (
-                      <span className="mrp">M.R.P: ₹{product.mrp}</span>
-                    )}
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          <button
-            className="carousel-btn next"
-            onClick={() => scroll("next")}
-            disabled={isAtEnd}
-            aria-label="Next slide"
-          >
-            <i className="fas fa-chevron-right"></i>
-          </button>
-        </div>
+        <button
+          onClick={handlePrev}
+          className="wheel-nav-btn prev-btn"
+          aria-label="Previous"
+        >
+          <FiChevronLeft />
+        </button>
+        <button
+          onClick={handleNext}
+          className="wheel-nav-btn next-btn"
+          aria-label="Next"
+        >
+          <FiChevronRight />
+        </button>
       </div>
-    </section>
+
+      <div className="focus-wheel-details" key={activeIndex}>
+        <p className="product-category">{activeProduct.category}</p>
+        <h2 className="product-title-main">{activeProduct.title}</h2>
+        <h3 className="product-price-main">₹{activeProduct.price}</h3>
+        <button className="view-product-btn">View Details</button>
+      </div>
+    </div>
   );
 }
 

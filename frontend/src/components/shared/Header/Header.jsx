@@ -118,7 +118,11 @@ function Header() {
             <div className="header-actions">
               {isLoggedIn ? (
                 <>
-                  <button className="favorite-btn" aria-label="Favorites">
+                  <button
+                    className="favorite-btn"
+                    aria-label="Favorites"
+                    onClick={() => navigate(`/favourites`)}
+                  >
                     <i className="fas fa-heart"></i>
                   </button>
                   <div className="avatar-container" ref={dropdownRef}>

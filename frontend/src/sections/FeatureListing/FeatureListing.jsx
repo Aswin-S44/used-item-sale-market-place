@@ -3,6 +3,7 @@ import "./FeatureListing.css";
 import { useNavigate } from "react-router-dom";
 import { PRODUCT_CONDITION_TYPES } from "../../constants/appConstants";
 import { CiLocationOn } from "react-icons/ci";
+import { FaHeart } from "react-icons/fa";
 
 function FeatureListing({ title, description, products }) {
   const navigate = useNavigate();
@@ -17,6 +18,9 @@ function FeatureListing({ title, description, products }) {
           products.length > 0 &&
           products.map((product) => (
             <div key={product?._id} className="product-card">
+              <div className="heart-icon-container">
+                <FaHeart className="heart-icon" />
+              </div>
               <img
                 src={product?.images[0]}
                 alt={product?.name}

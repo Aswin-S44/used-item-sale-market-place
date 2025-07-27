@@ -6,7 +6,7 @@ const cardData = [
   {
     title: "Appliances for your home",
     linkText: "See more",
-    linkHref: "#",
+    linkHref: `used-items?category=appliances`,
     items: [
       {
         image:
@@ -33,7 +33,7 @@ const cardData = [
   {
     title: "Revamp your home in style",
     linkText: "Explore all",
-    linkHref: "#",
+    linkHref: `used-items?category=home`,
     items: [
       {
         image:
@@ -61,7 +61,7 @@ const cardData = [
   {
     title: "Automotive essentials",
     linkText: "Shop now",
-    linkHref: "#",
+    linkHref: `used-items?category=automotives`,
     items: [
       {
         image:

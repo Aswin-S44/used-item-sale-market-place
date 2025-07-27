@@ -20,6 +20,7 @@ import CategoryNav from "./components/CategoryNav/CategoryNav";
 import ReviewsPage from "./pages/ReviewsPage/ReviewsPage";
 import EditProfilePage from "./pages/EditProfilePage/EditProfilePage";
 import SignupPage from "./pages/SignupPage/SignupPage";
+import FavouriteItemsPage from "./pages/FavouriteItemsPage/FavouriteItemsPage";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
               <Route path="/reviews" element={<ReviewsPage />} />
               <Route path="/profile/edit/:id" element={<EditProfilePage />} />
               <Route path="/signup" element={<SignupPage />} />
+              <Route path="/favourites" element={<FavouriteItemsPage />} />
             </Routes>
             <Footer />
           </main>

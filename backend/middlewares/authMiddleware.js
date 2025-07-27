@@ -7,7 +7,7 @@ module.exports.userVerification = (req, res, next) => {
   const token =
     req.cookies.token ||
     req.headers["authorization"]?.split(" ")[1] ||
-    req.body.token;
+    req.body?.token;
   if (!token) {
     return res.status(STATUS_FORBIDDEN).json({ message: "Forebidden" });
   }
